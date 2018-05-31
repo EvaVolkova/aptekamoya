@@ -10,9 +10,10 @@ def landing(request):
         print(request.POST)
         print(form.cleaned_data)
         data = form.cleaned_data
-        print (data["name"])
+        print(data["name"])
         new_form = form.save()
     return render(request, 'landing/landing.html', locals())
+
 
 def home(request):
     products_images = ProductImage.objects.filter(is_active=True, is_main=True, product__is_active=True)
