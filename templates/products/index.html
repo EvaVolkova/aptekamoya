@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="section-top">
+     <h1 class="text-center">
+    <img src="{% static 'img/pharmacy2.jpg' %}" >
+                    </h1>
+
+    </div>
+    <div class="section section1">
+        <div class="container">
+            <div class="row">
+                {% for product_image in products %}
+                    {% include 'products/product_item.html' %}
+{#                    {{ product_image.product.id }}#}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

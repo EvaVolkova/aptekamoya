@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="section-top">
+     <h1 class="text-center">
+    <img src="{% static 'img/pharmacy2.jpg' %}" >
+                    </h1>
+
+{#     <img src="{% static 'img/pharmacy1.jpg' %}" >#}
+
+
+    </div>
+    <div class="section section1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        Новые поступления
+                    </h1>
+                </div>
+                {% for product_image in last_four_products_images %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{#    <div class="section section-delivery">#}
+{#        <div>#}
+{#            <h3>Скидочные товары</h3>#}
+{#        </div>#}
+{#    </div>#}
+    <div class="section section2 phones-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        Таблетки
+                    </h1>
+                </div>
+                {% for product_image in products_images_tablets %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <div class="section section3 laptops-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        От вируса
+                    </h1>
+                </div>
+                {% for product_image in products_images_virus %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
