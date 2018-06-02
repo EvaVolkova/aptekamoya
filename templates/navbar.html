@@ -1,4 +1,3 @@
-<!-- Static navbar -->
 {#    <nav class="navbar navbar-default navbar-top">#}
 {#        df#}
 {#    </nav>#}
@@ -7,22 +6,17 @@
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
           </button>
 
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active">
-{#    <img src="{% static 'img/Dental.png' %}" >#}
                 <a href="/">АПТЕКА</a></li>
-
             <li><a href="/products">Каталог товаров</a></li>
               <li><a href="/landing">Подписка</a></li>
           </ul>
+
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <div class="basket-container">
@@ -51,15 +45,16 @@
                             </ul>
                         </div>
                     </div>
-                </li>
+
                 {% if user.is_authenticated %}
-                    <li>Welcome, {{ user.username }}.</li>
-                    <li><a href="{% url 'logout' %}">Log out</a></li>
+                    <li>Здравствуйте, {{ user.username }}.</li>
+                    <li><a href="{% url 'logout' %}">Выйти</a></li>
                 {% else %}
-                    <li>Welcome, new user.</li>
-                    <li><a href="{% url 'login' %}">Log in</a></li>
-                    <li><a href="{% url 'signup' %}">Sign up</a></li>
+                    <li>Здравствуйте, новый пользователь.</li>
+                    <li><a href="{% url 'login' %}">Вход</a></li>
+                    <li><a href="{% url 'signup' %}">Регестрация</a></li>
                 {% endif %}
+            </li>
             </ul>
         </div><!--/.nav-collapse -->
       </div>

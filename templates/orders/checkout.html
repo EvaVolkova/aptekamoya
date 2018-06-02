@@ -10,11 +10,14 @@
                     <h3 class="text-center">Товары в корзине</h3>
 {#                    <h5 class="text-center">Общая стоимость: {{ request.session.basket.total_amount }} грн </h5>#}
                             {{ request.session.basket.products }}
-
+                <div class="center">
+                    <h1><FONT color="red" size=4>{{ text }}</FONT></h1>
+                </div>
                     <form class="form-horizontal" method="post">{% csrf_token %}
 
                             <div class="form-group">
                                 <div class="col-lg-4">
+                                    <br>
                                     <label>Имя</label>
                                     <span class="form-error">{{ form.name.errors }}</span>
                                     <input type="text" name="{{ form.name.html_name }}" class="form-control"

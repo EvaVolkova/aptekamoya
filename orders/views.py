@@ -68,20 +68,22 @@ def checkout(request):
                     print(type(value))
 
                     product_in_basket.nmb = value
-                    product_in_basket.order = order
-                    # if product_in_basket.nmb >= 1:
-                    product_in_basket.save(force_update=True)
 
-                    ProductInOrder.objects.create(product=product_in_basket.product, nmb=product_in_basket.nmb,
+                    product_in_basket.order = order
+                    if (int(product_in_basket.nmb) >= 1) & (int(product_in_basket.nmb) < 4):
+                        product_in_basket.save(force_update=True)
+
+                        ProductInOrder.objects.create(product=product_in_basket.product, nmb=product_in_basket.nmb,
                                                       price_per_item=product_in_basket.price_per_item,
                                                       total_price=product_in_basket.total_price,
                                                       order=order)
-                    # else:
-                    #     return render(request, 'orders/checkout.html', locals())
+                    else:
+                        product_in_basket.nmb = 0
+
+                        return render(request, 'orders/checkout.html',{'text': 'Измените количесвто товаров в пределах от 1 до 3'}, locals())
 
             return HttpResponseRedirect(request.META['HTTP_REFERER'])
         else:
             print("no")
-
 
     return render(request, 'orders/checkout.html', locals())
