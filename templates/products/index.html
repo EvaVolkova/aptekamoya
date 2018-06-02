@@ -4,17 +4,36 @@
 
 {% block content %}
     <div class="section-top">
-     <h1 class="text-center">
-    <img src="{% static 'img/pharmacy2.jpg' %}" >
-                    </h1>
-
+        <h1 class="text-center">
+            <img src="{% static 'img/pharmacy2.jpg' %}">
+        </h1>
     </div>
+
     <div class="section section1">
+
         <div class="container">
+
             <div class="row">
-                {% for product_image in products %}
+                <div class="col-lg-6 col-lg-offset-3">
+                    <form method="GET" action="" role="search" class="form-inline">
+                        <div class="form-group">
+                            <input class="form-control"
+                                   name="q"
+                                   type="text"
+                                   value="{{ request.GET.q }}"
+                                   placeholder="Введите название продукта..." size="60"/>
+
+                            <button class="btn btn-default" type="submit">Поиск</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                {% for product in object_list %}
                     {% include 'products/product_item.html' %}
-{#                    {{ product_image.product.id }}#}
                 {% endfor %}
             </div>
         </div>
