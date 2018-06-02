@@ -2,7 +2,7 @@
     <div class="product-item">
         <div>
             <a href="{% url 'product' product.id %}">
-                <img src="{{ product.product_image.all.first.image.url }}" class="img-responsive">
+                <img src="{{ product.productimage_set.all.first.image.url }}" class="img-responsive">
             </a>
         </div>
 
