@@ -32,7 +32,7 @@ class Product(models.Model):
 
 
 class ProductImage(models.Model):
-    product = models.ForeignKey(Product, blank=True, null=True, default=None)
+    product = models.ForeignKey(Product, blank=True, null=True, default=None, related_name="product_image")
     image = models.ImageField(upload_to='products_images/')
     is_main = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)

@@ -1,11 +1,18 @@
 from django.shortcuts import render
 from products.models import *
+from django.views.generic import ListView
 
 
-def index(request):
-    # products = ProductImage.objects.all()
-    products = ProductImage.objects.raw('select * from products_productimage')
-    return render(request, 'products/index.html', locals())
+class ProductList(ListView):
+    model = Product
+    template_name = 'products/index.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            return Product.objects.filter(name__icontains=query)
+        else:
+            return Product.objects.all()
 
 
 def product(request, product_id):
