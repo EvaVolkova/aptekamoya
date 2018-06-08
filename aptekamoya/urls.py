@@ -22,6 +22,7 @@ from aptekamoya import views as core_views
 urlpatterns = [
                   url('^', include('django.contrib.auth.urls')),
                   url(r'^signup/$', core_views.signup, name='signup'),
+                  url(r'^custom/$', core_views.custom, name='custom'),
                   url(r'^admin/', admin.site.urls),
                   url(r'^', include('landing.urls')),
                   url(r'^', include('products.urls')),
